@@ -3,7 +3,6 @@ const router = express.Router();
 const Document = require("../models/Document");
 const auth = require("../middleware/requireAuth");
 
-// Get all notes for logged-in user
 router.get("/", auth, async (req, res) => {
   try {
     const notes = await Document.find({
@@ -16,7 +15,6 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-// Create new note
 router.post("/create", auth, async (req, res) => {
   try {
     const note = await Document.create({
@@ -31,7 +29,6 @@ router.post("/create", auth, async (req, res) => {
   }
 });
 
-// Get single note
 router.get("/:id", auth, async (req, res) => {
   try {
     const note = await Document.findOne({
@@ -47,7 +44,7 @@ router.get("/:id", auth, async (req, res) => {
   }
 });
 
-// Update note
+
 router.put("/:id", auth, async (req, res) => {
   try {
     const updated = await Document.findOneAndUpdate(
@@ -59,6 +56,22 @@ router.put("/:id", auth, async (req, res) => {
     res.json(updated);
   } catch {
     res.status(500).json({ message: "Failed to save note" });
+  }
+});
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    const deleted = await Document.findOneAndDelete({
+      _id: req.params.id,
+      ownerId: req.user.id
+    });
+
+    if (!deleted) {
+      return res.status(404).json({ message: "Note not found" });
+    }
+
+    res.json({ message: "Note deleted" });
+  } catch (err) {
+    res.status(500).json({ message: "Failed to delete note" });
   }
 });
 
