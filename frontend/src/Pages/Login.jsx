@@ -44,7 +44,7 @@ export default function Login() {
 
             <input
               name="password"
-              type="password"
+              type="text"
               placeholder="Password"
               value={form.password}
               onChange={handleChange}
