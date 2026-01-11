@@ -33,13 +33,25 @@ export default function Notes() {
     setNotes(prev => prev.filter(note => note._id !== id));
   };
 
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <div className="notes-page">
       <div className="notes-header">
         <h1>My Notes</h1>
-        <button className="new-note-btn" onClick={createNote}>
-          + New Note
-        </button>
+
+        <div className="notes-actions">
+          <button className="new-note-btn" onClick={createNote}>
+            + New Note
+          </button>
+
+          <button className="logout-btn" onClick={logout}>
+            Logout
+          </button>
+        </div>
       </div>
 
       {notes.length === 0 && <p className="empty">No notes yet</p>}
@@ -61,7 +73,7 @@ export default function Notes() {
             <button
               className="delete-btn"
               onClick={(e) => {
-                e.stopPropagation(); // IMPORTANT
+                e.stopPropagation();
                 deleteNote(note._id);
               }}
             >

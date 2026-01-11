@@ -69,3 +69,22 @@
 .empty {
   color: #94a3b8;
 }
+.notes-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid #1e293b;
+  color: #c7d2fe;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  border-color: #6366f1;
+  color: white;
+}
+
