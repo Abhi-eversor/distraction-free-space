@@ -7,9 +7,9 @@ Write From Your Heart gives students a peaceful, minimalist environment to write
 ---
 ## Team Members:
 - Abhishek Aryan
-- Vindhya Guttula
-- Aishwwarya Aryan
-- Nisha M
+- Vindhya Guttula (https://github.com/vindhya-tech)
+- Aishwwarya Aryan (https://github.com/AishwaryaAryan)
+- Nisha M (https://github.com/NishaManivannan1)
 
 ## Table of Contents
 
@@ -29,7 +29,10 @@ Write From Your Heart gives students a peaceful, minimalist environment to write
 ## Demo
 
 **Video Pitch (2-min)**  
-[*Include your video link here* ] (https://docs.google.com/document/d/1V42XIiZTqi5i2lA5OBp_-eNJmqCQ6Y24Sn66slBjars/edit?tab=t.0) 
+[https://docs.google.com/document/d/1V42XIiZTqi5i2lA5OBp_-eNJmqCQ6Y24Sn66slBjars/edit?tab=t.0](https://drive.google.com/file/d/1Qn8uckmxihgLv_nAaxynN649739dcHxr/view)
+
+**PPT presentation**
+[https://docs.google.com/presentation/d/1M0m30inJOFlBK_WRgjO_d_Mtm7J3UBhN/edit?usp=sharing&ouid=108875841002195971114&rtpof=true&sd=true](https://drive.google.com/file/d/1Qn8uckmxihgLv_nAaxynN649739dcHxr/view)
 
 
 ## Features
