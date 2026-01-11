@@ -1,0 +1,58 @@
+/* Layout */
+.editor-layout {
+  height: 100vh;
+  background: #020617;
+  display: flex;
+  flex-direction: column;
+  font-family: "Georgia", serif;
+}
+
+/* Header */
+.editor-header {
+  height: 60px;
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: #e5e7eb;
+}
+
+.editor-header button {
+  background: #6366f1;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.editor-header button:hover {
+  background: #4f46e5;
+}
+
+/* Textarea */
+.editor-textarea {
+  flex: 1;
+  width: 100%;
+  padding: 40px;
+  background: #020617;
+  border: none;
+  outline: none;
+  resize: none;
+  color: #e5e7eb;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.editor-textarea::placeholder {
+  color: #64748b;
+}
+.save-status {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-right: auto;
+  margin-left: 20px;
+}
+
