@@ -51,14 +51,12 @@
   backdrop-filter: blur(10px);
 }
 
-/* ===== Title ===== */
 .auth-card h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #e5e7eb;
 }
 
-/* ===== Inputs ===== */
 .auth-card input {
   width: 100%;
   padding: 12px;
@@ -79,7 +77,7 @@
   border-color: #6366f1;
 }
 
-/* ===== Button ===== */
+
 .auth-card button {
   width: 100%;
   padding: 12px;
@@ -97,7 +95,6 @@
   box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
 }
 
-/* ===== Text ===== */
 .switch-text {
   text-align: center;
   margin-top: 16px;
@@ -114,7 +111,6 @@
   text-decoration: underline;
 }
 
-/* ===== Error ===== */
 .error-text {
   color: #f87171;
   font-size: 14px;
@@ -122,7 +118,6 @@
   margin-bottom: 10px;
 }
 
-/* ===== Animations ===== */
 @keyframes slideIn {
   from {
     opacity: 0;

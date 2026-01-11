@@ -31,7 +31,7 @@ export default function Editor() {
 
   return (
     <div className="editor-layout">
-      {/* Header */}
+      {}
       <div className="editor-header">
         <div className="editor-left">
           <button
@@ -59,7 +59,7 @@ export default function Editor() {
         </button>
       </div>
 
-      {/* Editor */}
+      {}
       <textarea
         className="editor-textarea"
         value={content}

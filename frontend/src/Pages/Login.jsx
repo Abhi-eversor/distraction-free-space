@@ -60,10 +60,10 @@ export default function Login() {
         </div>
       </div>
 
-      {/* RIGHT SIDE */}
+      {}
       <div className="auth-right">
         <div className="hero-text animate-fade">
-          <h1>Distraction-Free Space</h1>
+          <h1>Write from your heart</h1>
           <p>
             A calm place to think,<br />
             write, and let your thoughts flow.

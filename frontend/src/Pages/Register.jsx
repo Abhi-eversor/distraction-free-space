@@ -25,7 +25,7 @@ export default function Register() {
 
   return (
     <div className="auth-layout">
-      {/* LEFT SIDE */}
+      {}
       <div className="auth-left">
         <div className="auth-card animate-slide">
           <h2>Create Account</h2>
@@ -67,7 +67,7 @@ export default function Register() {
         </div>
       </div>
 
-      {/* RIGHT SIDE */}
+      {}
       <div className="auth-right">
         <div className="hero-text animate-fade">
           <h1>Write From Your Heart</h1>
