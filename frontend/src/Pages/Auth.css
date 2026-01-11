@@ -1,0 +1,171 @@
+
+.auth-layout {
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(135deg, #020617, #020617);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+
+.auth-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-right {
+  flex: 1;
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e5e7eb;
+}
+
+
+.hero-text {
+  text-align: center;
+  max-width: 400px;
+}
+
+.hero-text h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-text p {
+  font-size: 18px;
+  color: #cbd5f5;
+  line-height: 1.6;
+}
+
+/* ===== Card ===== */
+.auth-card {
+  background: rgba(15, 23, 42, 0.85);
+  padding: 35px;
+  width: 360px;
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+/* ===== Title ===== */
+.auth-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #e5e7eb;
+}
+
+/* ===== Inputs ===== */
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  background: #020617;
+  color: #e5e7eb;
+  font-size: 14px;
+}
+
+.auth-card input::placeholder {
+  color: #64748b;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+/* ===== Button ===== */
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #6366f1, #818cf8);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+}
+
+/* ===== Text ===== */
+.switch-text {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+.switch-text a {
+  color: #818cf8;
+  text-decoration: none;
+}
+
+.switch-text a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Error ===== */
+.error-text {
+  color: #f87171;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* ===== Animations ===== */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide {
+  animation: slideIn 0.8s ease forwards;
+}
+
+.animate-fade {
+  animation: fadeIn 1.5s ease forwards;
+}
+
+
+@media (max-width: 900px) {
+  .auth-right {
+    display: none;
+  }
+}
