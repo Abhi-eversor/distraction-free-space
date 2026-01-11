@@ -3,6 +3,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import DashBoard from "./Pages/DashBoard";
 import Editor from "./Pages/Editor";
+import Notes from "./Pages/Notes";
 
 export default function App() {
   return (
@@ -12,7 +13,9 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<DashBoard />} />
-        <Route path="/editor" element={<Editor/>} />
+        <Route path="/notes" element={<Notes/>} />
+        <Route path="/editor/:id" element={<Editor/>} />
+
       </Routes>
     </BrowserRouter>
   );

@@ -19,7 +19,35 @@
   color: #e5e7eb;
 }
 
-.editor-header button {
+.editor-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.editor-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Buttons */
+.back-btn {
+  background: transparent;
+  border: 1px solid #1e293b;
+  color: #c7d2fe;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.back-btn:hover {
+  background: #020617;
+  border-color: #6366f1;
+  color: white;
+}
+
+.logout-btn {
   background: #6366f1;
   border: none;
   color: white;
@@ -28,8 +56,15 @@
   cursor: pointer;
 }
 
-.editor-header button:hover {
+.logout-btn:hover {
   background: #4f46e5;
+}
+
+/* Save status */
+.save-status {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-left: 10px;
 }
 
 /* Textarea */
@@ -49,10 +84,3 @@
 .editor-textarea::placeholder {
   color: #64748b;
 }
-.save-status {
-  font-size: 14px;
-  color: #94a3b8;
-  margin-right: auto;
-  margin-left: 20px;
-}
-

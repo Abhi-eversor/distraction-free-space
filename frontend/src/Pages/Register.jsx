@@ -16,7 +16,7 @@ export default function Register() {
     e.preventDefault();
     setError("");
     try {
-      await API.post("/api/auth/register", form);
+      await API.post("/auth/register", form);
       navigate("/login");
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed");

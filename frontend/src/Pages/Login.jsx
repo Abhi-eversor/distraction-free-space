@@ -16,9 +16,9 @@ export default function Login() {
     e.preventDefault();
     setError("");
     try {
-      const res = await API.post("/api/auth/login", form);
+      const res = await API.post("/auth/login", form);
       localStorage.setItem("token", res.data.token);
-      navigate("/editor");
+      navigate("/notes");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     }
@@ -26,7 +26,7 @@ export default function Login() {
 
   return (
     <div className="auth-layout">
-      {/* LEFT SIDE */}
+      {}
       <div className="auth-left">
         <div className="auth-card animate-slide">
           <h2>Welcome Back</h2>

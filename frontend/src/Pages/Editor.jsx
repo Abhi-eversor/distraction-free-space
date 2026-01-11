@@ -1,40 +1,55 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import API from "../Services/api";
 import "./Editor.css";
 
 export default function Editor() {
+  const { id } = useParams();
   const navigate = useNavigate();
+
   const [content, setContent] = useState("");
   const [status, setStatus] = useState("Saved");
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) navigate("/login");
-
-    // Load existing content
-    API.get("/api/docs").then((res) => {
+    if (!id) return;
+    API.get(`/docs/${id}`).then(res => {
       setContent(res.data.content || "");
     });
-  }, []);
+  }, [id]);
 
-  // Auto-save every 3 seconds
   useEffect(() => {
-    const timer = setTimeout(() => {
-      API.post("/api/docs", { content });
-      setStatus("Saved");
-    }, 3000);
+    if (!id) return;
 
     setStatus("Saving...");
+    const timer = setTimeout(async () => {
+      await API.put(`/docs/${id}`, { content });
+      setStatus("Saved");
+    }, 800);
+
     return () => clearTimeout(timer);
-  }, [content]);
+  }, [content, id]);
 
   return (
     <div className="editor-layout">
+      {/* Header */}
       <div className="editor-header">
-        <h2>Distraction-Free Space</h2>
-        <span className="save-status">{status}</span>
+        <div className="editor-left">
+          <button
+            className="back-btn"
+            onClick={() => navigate("/notes")}
+          >
+            My Notes
+          </button>
+
+          <strong className="editor-title">
+            Distraction-Free Space
+          </strong>
+
+          <span className="save-status">{status}</span>
+        </div>
+
         <button
+          className="logout-btn"
           onClick={() => {
             localStorage.removeItem("token");
             navigate("/login");
@@ -44,11 +59,12 @@ export default function Editor() {
         </button>
       </div>
 
+      {/* Editor */}
       <textarea
         className="editor-textarea"
-        placeholder="Start writing here..."
         value={content}
-        onChange={(e) => setContent(e.target.value)}
+        onChange={e => setContent(e.target.value)}
+        placeholder="Start writing..."
       />
     </div>
   );

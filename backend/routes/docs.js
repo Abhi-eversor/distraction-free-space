@@ -1,43 +1,65 @@
 const express = require("express");
 const router = express.Router();
 const Document = require("../models/Document");
-const jwt = require("jsonwebtoken");
+const auth = require("../middleware/requireAuth");
 
-const auth = (req, res, next) => {
-  const token = req.headers.authorization?.split(" ")[1];
-  if (!token) return res.status(401).json({ message: "No token" });
-
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.userId = decoded.id;
-    next();
-  } catch {
-    res.status(401).json({ message: "Invalid token" });
-  }
-};
-
-
+// Get all notes for logged-in user
 router.get("/", auth, async (req, res) => {
-  let doc = await Document.findOne({ userId: req.userId });
+  try {
+    const notes = await Document.find({
+      ownerId: req.user.id
+    }).sort({ updatedAt: -1 });
 
-  if (!doc) {
-    doc = await Document.create({ userId: req.userId });
+    res.json(notes);
+  } catch (err) {
+    res.status(500).json({ message: "Failed to load notes" });
   }
-
-  res.json(doc);
 });
 
+// Create new note
+router.post("/create", auth, async (req, res) => {
+  try {
+    const note = await Document.create({
+      ownerId: req.user.id,
+      title: req.body.title || "Untitled",
+      content: ""
+    });
 
-router.post("/", auth, async (req, res) => {
-  const { content } = req.body;
+    res.status(201).json(note);
+  } catch (err) {
+    res.status(500).json({ message: "Failed to create note" });
+  }
+});
 
-  const doc = await Document.findOneAndUpdate(
-    { userId: req.userId },
-    { content },
-    { new: true, upsert: true }
-  );
+// Get single note
+router.get("/:id", auth, async (req, res) => {
+  try {
+    const note = await Document.findOne({
+      _id: req.params.id,
+      ownerId: req.user.id
+    });
 
-  res.json(doc);
+    if (!note) return res.status(404).json({ message: "Not found" });
+
+    res.json(note);
+  } catch {
+    res.status(500).json({ message: "Failed to load note" });
+  }
+});
+
+// Update note
+router.put("/:id", auth, async (req, res) => {
+  try {
+    const updated = await Document.findOneAndUpdate(
+      { _id: req.params.id, ownerId: req.user.id },
+      { content: req.body.content },
+      { new: true }
+    );
+
+    res.json(updated);
+  } catch {
+    res.status(500).json({ message: "Failed to save note" });
+  }
 });
 
 module.exports = router;
